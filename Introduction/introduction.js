@@ -55,7 +55,7 @@ Vue.component('todo-item', {
     template: '<li>{{ todo.text }}</li>'
 })
 var app7 = new Vue({
-    el: '#app-7',
+    el : '#app-7',
     data: {
         groceryList: [
             { text: 'Vegetables' },

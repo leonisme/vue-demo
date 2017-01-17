@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template Syntax</title>
+    <script src="../vue/vue.js"></script>
+</head>
+<body>
+<div id="app-1">
+    <span v-once>This will never change: {{ msg }}</span>
+</div>
+<div id="app-2" v-html="rawHtml">
+</div>
+<div id="app-3">
+    <div v-bind:id="'list-' + id"></div>
+</div>
+<div id="app-4">
+    <form v-on:submit.prevent="onSubmit">
+        <p>{{msg}}</p>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<div id="app-5">
+    <p>{{message | capitalize}}</p>
+</div>
+<div id="app-6">
+    <a :href="url">Vue.js</a><br>
+    <a @click="doSomething">Vue.js</a>
+</div>
+<script src="template-syntax.js"></script>
+</body>
+</html>

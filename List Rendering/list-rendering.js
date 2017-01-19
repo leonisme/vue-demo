@@ -77,3 +77,36 @@ var app6 = new Vue({
         ]
     }
 })
+
+//Displaying Filtered/Sorted Results
+//computed example
+
+var app7 = new Vue({
+    el : '#app-7',
+    data: {
+        numbers: [ 1, 2, 3, 4, 5 ]
+    },
+    computed: {
+        evenNumbers: function () {
+            return this.numbers.filter(function (number) {
+                return number % 2 === 0
+            })
+        }
+    }
+})
+
+//methods example
+
+var app8 = new Vue({
+    el : '#app-8',
+    data: {
+        numbers: [ 1, 2, 3, 4, 5 ]
+    },
+    methods: {
+        even: function (numbers) {
+            return numbers.filter(function (number) {
+                return number % 2 === 0
+            })
+        }
+    }
+})

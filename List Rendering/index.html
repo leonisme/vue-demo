@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Rendering</title>
+    <script src="../vue/vue.js"></script>
+</head>
+<body>
+<div id="app-1">
+    <ul>
+        <li v-for="item in items">
+            {{ item.message }}
+        </li>
+    </ul>
+</div>
+<div id="app-2">
+    <ul>
+        <template v-for="item in items">
+            <li>{{ item.msg }}</li>
+            <li class="divider"></li>
+        </template>
+    </ul>
+</div>
+<div id="app-3">
+    <div v-for="(value, key, index) in object">
+        {{ index }}. {{ key }} : {{ value }}
+    </div>
+</div>
+<div id="app-4">
+    <span v-for="n in 10">{{ n }}</span>
+</div>
+<div id="app-5">
+    <input
+            v-model="newTodoText"
+            v-on:keyup.enter="addNewTodo"
+            placeholder="Add a todo"
+    >
+    <ul>
+        <li
+                is="todo-item"
+                v-for="(todo, index) in todos"
+                v-bind:title="todo"
+                v-on:remove="todos.splice(index, 1)"
+        ></li>
+    </ul>
+</div>
+<div id="app-6">
+    <div v-for="item in items" :key="item.id">
+        {{item.id}}
+    </div>
+</div>
+<div id="app-7">
+    <li v-for="n in evenNumbers">{{ n }}</li>
+</div>
+<div id="app-8">
+    <li v-for="n in even(numbers)">{{ n }}</li>
+</div>
+<script src="list-rendering.js"></script>
+</body>
+</html>

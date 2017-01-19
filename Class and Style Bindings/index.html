@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Class and Style Bindings</title>
+    <script src="../vue/vue.js"></script>
+</head>
+<body>
+<div id="app-1">
+    <div class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }">
+        Check the className of this div in developer tools.
+    </div>
+</div>
+<div id="app-2">
+    <div v-bind:class="classObject">
+        Check the className of this div in developer tools.
+    </div>
+</div>
+<div id="app-3">
+    <div v-bind:class="[isActive ? activeClass : '', errorClass]">
+        Check the className of this div in developer tools.
+    </div>
+</div>
+<my-component id="app-4" v-bind:class="{ active: isActive }"></my-component>
+<div id="app-5">
+    <div v-bind:style="styleObject">Style</div>
+</div>
+<div id="app-6">
+    <div v-bind:style="[color, fontSize]">Style</div>
+</div>
+<script src="class-and-style-bindings.js"></script>
+</body>
+</html>

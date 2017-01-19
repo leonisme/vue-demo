@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conditional Rendering</title>
+    <script src="../vue/vue.js"></script>
+</head>
+<body>
+<div id="app-1">
+    <h1 v-if="ok">Yes</h1>
+    <h1 v-else>No</h1>
+</div>
+<div id="app-2">
+    <template v-if="ok">
+        <h1>Title</h1>
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+    </template>
+</div>
+<div id="app-3">
+    <div v-if="Math.random() > 0.5">
+        Now you see me
+    </div>
+    <div v-else>
+        Now you don't
+    </div>
+</div>
+
+<div id="app-4">
+    <div v-if="type === 'A'">
+        A
+    </div>
+    <div v-else-if="type === 'B'">
+        B
+    </div>
+    <div v-else-if="type === 'C'">
+        C
+    </div>
+    <div v-else>
+        Not A/B/C
+    </div>
+</div>
+<div id="app-5">
+    <template v-if="loginType === 'username'">
+        <label>Username</label>
+        <input placeholder="Enter your username" key="username-input">
+    </template>
+    <template v-else>
+        <label>Email</label>
+        <input placeholder="Enter your email address" key="email-input">
+    </template>
+    <input type="button" value="Toggle login type" v-on:click="toggle">
+</div>
+<div id="app-6">
+    <h1 v-show="ok">Hello!</h1>
+</div>
+<script src="conditional-rendering.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Input Bindings</title>
+    <script src="../vue/vue.js"></script>
+</head>
+<body>
+<div id="app-1">
+    <input v-model="message" placeholder="edit me">
+    <p>Message is: {{ message }}</p>
+</div>
+<div id="app-2">
+    <span>Multiline message is:</span>
+    <p style="white-space: pre">{{ message }}</p>
+    <br>
+    <textarea v-model="message" placeholder="add multiple lines"></textarea>
+</div>
+<div id="app-3">
+    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+    <label for="jack">Jack</label>
+    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+    <label for="john">John</label>
+    <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+    <label for="mike">Mike</label>
+    <br>
+    <span>Checked names: {{ checkedNames }}</span>
+</div>
+<div id="app-4">
+    <input type="radio" id="one" value="One" v-model="picked">
+    <label for="one">One</label>
+    <br>
+    <input type="radio" id="two" value="Two" v-model="picked">
+    <label for="two">Two</label>
+    <br>
+    <span>Picked: {{ picked }}</span>
+</div>
+<div id="app-5">
+    <select v-model="selected">
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+    <span>Selected: {{ selected }}</span>
+</div>
+<div id="app-6">
+    <select v-model="selected" multiple>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+    <br>
+    <span>Selected: {{ selected }}</span>
+</div>
+<div id="app-7">
+    <select v-model="selected">
+        <option v-for="option in options" v-bind:value="option.value">
+            {{ option.text }}
+        </option>
+    </select>
+    <span>Selected: {{ selected }}</span>
+</div>
+<script src="form-input-bindings.js"></script>
+</body>
+</html>

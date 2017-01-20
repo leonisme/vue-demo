@@ -66,3 +66,42 @@ var app7 = new Vue({
         ]
     }
 })
+
+//Checkbox
+
+var app8 = new Vue({
+    el : '#app-8',
+data : {
+        toggle : '',
+    a : 'a',
+    b : 'b'
+}
+})
+
+//Radio
+
+var app9 = new Vue({
+    el : '#app-9',
+    data : {
+        pick : '',
+        a : 'a'
+    }
+})
+
+//Select Options
+
+var app10 = new Vue({
+    el : '#app-10',
+    data : {
+        selected : {}
+    }
+})
+
+//.lazy
+
+var app11 = new Vue({
+    el : '#app-11',
+    data : {
+        msg : ''
+    }
+})

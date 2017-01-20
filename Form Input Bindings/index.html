@@ -60,6 +60,26 @@
     </select>
     <span>Selected: {{ selected }}</span>
 </div>
+<div id="app-8">
+    <input
+            type="checkbox"
+            v-model="toggle"
+            v-bind:true-value="a"
+            v-bind:false-value="b"
+    >
+</div>
+<div id="app-9">
+    <input type="radio" v-model="pick" v-bind:value="a">
+</div>
+<div id="app-10">
+    <select v-model="selected">
+        <option v-bind:value="{ number: 123 }">123</option>
+    </select>
+</div>
+<div id="app-11">
+    <input v-model.lazy="msg" >
+    <p>{{msg}}</p>
+</div>
 <script src="form-input-bindings.js"></script>
 </body>
 </html>

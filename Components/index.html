@@ -53,6 +53,38 @@
 
     <p>Total: ${{ total }}</p>
 </div>
+<div id="app-8">
+    <h1>I'm the parent title</h1>
+    <my-component>
+        <p>This is some original content</p>
+        <p>This is some more original content</p>
+    </my-component>
+</div>
+<div id="app-9">
+<app-layout>
+    <h1 slot="header">Here might be a page title</h1>
+    <p>A paragraph for the main content.</p>
+    <p>And another one.</p>
+    <p slot="footer">Here's some contact info</p>
+</app-layout>
+</div>
+<div id="app-10">
+    <div class="parent">
+        <child>
+            <template scope="props">
+                <span>hello from parent</span>
+                <span>{{ props.text }}</span>
+            </template>
+        </child>
+    </div>
+</div>
+<div id="app-11">
+    <my-awesome-list :items="items">
+        <template slot="item" scope="props">
+            <li class="my-fancy-item">{{ props.text }}</li>
+        </template>
+    </my-awesome-list>
+</div>
 <script src="components.js"></script>
 </body>
 </html>

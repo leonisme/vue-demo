@@ -158,3 +158,73 @@ var app7 = new Vue({
         }
     }
 })
+
+//Single Slot
+
+Vue.component('my-component',{
+    template : '\
+    <div>\
+    <h2>I\'m the child title</h2>\
+    <slot>\
+    This will only be displayed if there is no content\
+to be distributed.\
+</slot>\
+</div>\
+'
+})
+
+var app8 = new Vue({
+    el : '#app-8'
+})
+
+//Named Slots
+
+Vue.component('app-layout',{
+    template : '<div class="container">\
+    <header>\
+    <slot name="header"></slot>\
+    </header>\
+    <main>\
+    <slot></slot>\
+    </main>\
+    <footer>\
+    <slot name="footer"></slot>\
+    </footer>\
+    </div>\
+    '
+    }
+)
+
+var app9 = new Vue({
+    el : '#app-9'
+})
+
+//Scoped Slots
+//1st example
+
+Vue.component('child',{
+    template : '<div class="child">\
+    <slot text="hello from child"></slot>\
+    </div>\
+    '
+})
+
+var app10 = new Vue({
+    el : '#app-10'
+})
+
+//2nd example
+
+Vue.component('my-awesome-list',{
+    template : '<ul>\
+    <slot name="item"\
+v-for="item in items"\
+    :text="item.text">\
+</slot>\
+</ul>\
+'
+})
+
+var app11 = new Vue({
+    el : '#app-11'
+})

@@ -216,6 +216,7 @@ var app10 = new Vue({
 //2nd example
 
 Vue.component('my-awesome-list',{
+    props : ['items'],
     template : '<ul>\
     <slot name="item"\
 v-for="item in items"\
@@ -226,5 +227,51 @@ v-for="item in items"\
 })
 
 var app11 = new Vue({
-    el : '#app-11'
+    el : '#app-11',
+    data : {
+        items : [
+            {text : 'text1'},
+            {text : 'text2'},
+            {text : 'text3'}
+        ]
+    }
+})
+
+//is
+
+var app12 = new Vue({
+    el: '#app-12',
+    data: {
+        currentView: 'home'
+    },
+    methods : {
+        changeComponent : function () {
+            if(this.currentView === 'home'){
+                this.currentView = 'posts';
+            }else if(this.currentView === 'posts'){
+                this.currentView = 'archive';
+            }else {
+                this.currentView = 'home';
+            }
+        }
+    },
+    components: {
+        home: { template : '<p>home</p>' },
+        posts: { template : '<p>posts</p>' },
+        archive: { template : '<p>archive</p>' }
+    }
+})
+
+//Async Components
+
+Vue.component('async-example', function (resolve, reject) {
+    setTimeout(function () {
+        resolve({
+            template: '<div>I am async!</div>'
+        })
+    }, 1000)
+})
+
+var app13 = new Vue({
+    el : '#app-13'
 })

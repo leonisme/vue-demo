@@ -85,6 +85,14 @@
         </template>
     </my-awesome-list>
 </div>
+<div id="app-12">
+    <component v-bind:is="currentView">
+    </component>
+    <input type="button" value="change" v-on:click="changeComponent">
+</div>
+<div id="app-13">
+    <async-example></async-example>
+</div>
 <script src="components.js"></script>
 </body>
 </html>

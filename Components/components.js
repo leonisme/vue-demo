@@ -275,3 +275,19 @@ Vue.component('async-example', function (resolve, reject) {
 var app13 = new Vue({
     el : '#app-13'
 })
+
+//Inline Templates
+
+var app14 = new Vue({
+    el : '#app-14'
+})
+
+//X-Templates
+
+Vue.component('hello-world', {
+    template: '#hello-world-template'
+})
+
+var app15 = new Vue({
+    el : '#app-15'
+})

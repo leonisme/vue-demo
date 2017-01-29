@@ -93,6 +93,20 @@
 <div id="app-13">
     <async-example></async-example>
 </div>
+<div id="app-14">
+    <my-component inline-template>
+        <div>
+            <p>These are compiled as the component's own template.</p>
+            <p>Not parent's transclusion content.</p>
+        </div>
+    </my-component>
+</div>
+<div id="app-15">
+<hello-world></hello-world>
+</div>
+<script type="text/x-template" id="hello-world-template">
+    <p>Hello hello hello</p>
+</script>
 <script src="components.js"></script>
 </body>
 </html>

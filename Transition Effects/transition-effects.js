@@ -61,3 +61,50 @@ var app5 = new Vue({
         }
     }
 })
+
+//Transition Modes
+
+var app6 = new Vue({
+    el : '#app-6',
+    data: {
+        on: false
+    }
+})
+
+//Transitioning Between Components
+
+var app7 = new Vue({
+    el : '#app-7',
+    data: {
+        view: 'v-a'
+    },
+    components: {
+        'v-a': {
+            template: '<div>Component A</div>'
+        },
+        'v-b': {
+            template: '<div>Component B</div>'
+        }
+    }
+})
+
+//List Entering/Leaving Transitions
+
+var app8 = new Vue({
+    el : '#app-8',
+    data: {
+        items: [1,2,3,4,5,6,7,8,9],
+        nextNum: 10
+    },
+    methods: {
+        randomIndex: function () {
+            return Math.floor(Math.random() * this.items.length)
+        },
+        add: function () {
+            this.items.splice(this.randomIndex(), 0, this.nextNum++)
+        },
+        remove: function () {
+            this.items.splice(this.randomIndex(), 1)
+        },
+    }
+})

@@ -57,6 +57,34 @@
         </p>
     </transition>
 </div>
+<div id="app-6">
+    <div class="in-out-translate-demo-wrapper">
+        <transition name="in-out-translate-fade" mode="in-out">
+            <button v-if="on" key="on" @click="on = false">
+                on
+            </button>
+            <button v-else="" key="off" @click="on = true">
+                off
+            </button>
+        </transition>
+    </div>
+</div>
+<div id="app-7">
+    <input v-model="view" type="radio" value="v-a" id="a" name="view"><label for="a">A</label>
+    <input v-model="view" type="radio" value="v-b" id="b" name="view"><label for="b">B</label>
+    <transition name="component-fade" mode="out-in">
+        <component v-bind:is="view"></component>
+    </transition>
+</div>
+<div id="app-8">
+    <button v-on:click="add">Add</button>
+    <button v-on:click="remove">Remove</button>
+    <transition-group name="list" tag="p">
+    <span v-for="item in items" v-bind:key="item" class="list-item">
+      {{ item }}
+    </span>
+    </transition-group>
+</div>
 <script src="transition-effects.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
 </body>

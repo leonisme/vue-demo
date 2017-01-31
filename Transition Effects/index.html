@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transition Effects</title>
+    <link href="transition-effects.css" rel="stylesheet" type="text/css">
+    <link href="https://unpkg.com/animate.css@3.5.1/animate.min.css" rel="stylesheet" type="text/css">
+    <script src="../vue/vue.js"></script>
+</head>
+<body>
+<div id="app-1">
+    <button v-on:click="show = !show">
+        Toggle
+    </button>
+    <transition name="fade">
+        <p v-if="show">hello</p>
+    </transition>
+</div>
+<div id="app-2">
+    <button @click="show = !show">
+        Toggle render
+    </button>
+    <transition name="slide-fade">
+        <p v-if="show">hello</p>
+    </transition>
+</div>
+<div id="app-3">
+    <button @click="show = !show">Toggle show</button>
+    <transition name="bounce">
+        <p v-if="show">Look at me!</p>
+    </transition>
+</div>
+<div id="app-4">
+    <button @click="show = !show">
+        Toggle render
+    </button>
+    <transition
+            name="custom-classes-transition"
+            enter-active-class="animated tada"
+            leave-active-class="animated bounceOutRight"
+    >
+        <p v-if="show">hello</p>
+    </transition>
+</div>
+<div id="app-5">
+    <button @click="show = !show">
+        Toggle
+    </button>
+    <transition
+            v-on:before-enter="beforeEnter"
+            v-on:enter="enter"
+            v-on:leave="leave"
+            v-bind:css="false"
+    >
+        <p v-if="show">
+            Demo
+        </p>
+    </transition>
+</div>
+<script src="transition-effects.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+</body>
+</html>

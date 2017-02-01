@@ -108,3 +108,139 @@ var app8 = new Vue({
         },
     }
 })
+
+//List Move Transitions
+//1st example
+
+var app9 = new Vue({
+    el: '#app-9',
+    data: {
+        items: [1,2,3,4,5,6,7,8,9]
+    },
+    methods: {
+        shuffle: function () {
+            this.items = _.shuffle(this.items)
+        }
+    }
+})
+
+//2nd example
+
+var app10 = new Vue({
+    el: '#app-10',
+    data: {
+        items: [1,2,3,4,5,6,7,8,9],
+        nextNum: 10
+    },
+    methods: {
+        randomIndex: function () {
+            return Math.floor(Math.random() * this.items.length)
+        },
+        add: function () {
+            this.items.splice(this.randomIndex(), 0, this.nextNum++)
+        },
+        remove: function () {
+            this.items.splice(this.randomIndex(), 1)
+        },
+        shuffle: function () {
+            this.items = _.shuffle(this.items)
+        }
+    }
+})
+
+//Staggering List Transitions
+
+var app11 = new Vue({
+    el: '#app-11',
+    data: {
+        query: '',
+        list: [
+            { msg: 'Bruce Lee' },
+            { msg: 'Jackie Chan' },
+            { msg: 'Chuck Norris' },
+            { msg: 'Jet Li' },
+            { msg: 'Kung Fury' }
+        ]
+    },
+    computed: {
+        computedList: function () {
+            var vm = this
+            return this.list.filter(function (item) {
+                return item.msg.toLowerCase().indexOf(vm.query.toLowerCase()) !== -1
+            })
+        }
+    },
+    methods: {
+        beforeEnter: function (el) {
+            el.style.opacity = 0
+            el.style.height = 0
+        },
+        enter: function (el, done) {
+            var delay = el.dataset.index * 150
+            setTimeout(function () {
+                Velocity(
+                    el,
+                    { opacity: 1, height: '1.6em' },
+                    { complete: done }
+                )
+            }, delay)
+        },
+        leave: function (el, done) {
+            var delay = el.dataset.index * 150
+            setTimeout(function () {
+                Velocity(
+                    el,
+                    { opacity: 0, height: 0 },
+                    { complete: done }
+                )
+            }, delay)
+        }
+    }
+})
+
+//Dynamic Transitions
+
+var app12 = new Vue({
+    el: '#app-12',
+    data: {
+        show: true,
+        fadeInDuration: 1000,
+        fadeOutDuration: 1000,
+        maxFadeDuration: 1500,
+        stop: false
+    },
+    mounted: function () {
+        this.show = false
+    },
+    methods: {
+        beforeEnter: function (el) {
+            el.style.opacity = 0
+        },
+        enter: function (el, done) {
+            var vm = this
+            Velocity(el,
+                { opacity: 1 },
+                {
+                    duration: this.fadeInDuration,
+                    complete: function () {
+                        done()
+                        if (!vm.stop) vm.show = false
+                    }
+                }
+            )
+        },
+        leave: function (el, done) {
+            var vm = this
+            Velocity(el,
+                { opacity: 0 },
+                {
+                    duration: this.fadeOutDuration,
+                    complete: function () {
+                        done()
+                        vm.show = true
+                    }
+                }
+            )
+        }
+    }
+})

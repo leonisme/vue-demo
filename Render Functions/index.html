@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Render Functions</title>
+    <script src="../vue/vue.js"></script>
+</head>
+<body>
+<div id="app-1">
+    <anchored-heading-one :level="1">Hello world!</anchored-heading-one>
+</div>
+<div id="app-2">
+    <anchored-heading-two :level="2">Hello world!</anchored-heading-two>
+</div>
+<div id="app-3">
+    <anchored-heading-three :level="3"><p>Hello world!</p><p>1</p><p>2</p></anchored-heading-three>
+</div>
+<script type="text/x-template" id="anchored-heading-template">
+    <div>
+        <h1 v-if="level === 1">
+            <slot></slot>
+        </h1>
+        <h2 v-if="level === 2">
+            <slot></slot>
+        </h2>
+        <h3 v-if="level === 3">
+            <slot></slot>
+        </h3>
+        <h4 v-if="level === 4">
+            <slot></slot>
+        </h4>
+        <h5 v-if="level === 5">
+            <slot></slot>
+        </h5>
+        <h6 v-if="level === 6">
+            <slot></slot>
+        </h6>
+    </div>
+</script>
+<script src="render-functions.js"></script>
+</body>
+</html>

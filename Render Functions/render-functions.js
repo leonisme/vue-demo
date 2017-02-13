@@ -75,3 +75,47 @@ Vue.component('anchored-heading-three', {
 var app3 = new Vue({
     el : '#app-3'
 })
+
+//duplicate the same element/component many times with a factory function
+
+Vue.component('anchored-heading-four',{
+    render: function (createElement) {
+        return createElement('div',
+            Array.apply(null, { length: 20 }).map(function () {
+                return createElement('p', 'hi')
+            })
+        )
+    }
+})
+
+var app4 = new Vue({
+    el : '#app-4'
+})
+
+//v-if and v-for
+
+Vue.component('anchored-heading-five', {
+    render: function (createElement) {
+        if (this.items.length) {
+            return createElement('ul', this.items.map(function (item) {
+                return createElement('li', item.name)
+            }))
+        } else {
+            return createElement('p', 'No items found.')
+        }
+    },
+data : function () {
+    return {
+        items : [
+            {name : 'name1'},
+            {name : 'name2'},
+            {name : 'name3'}
+        ]
+    }
+}
+})
+
+var app5 = new Vue({
+    el : '#app-5'
+})
+

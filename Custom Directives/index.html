@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Custom Directives</title>
+    <script src="../vue/vue.js"></script>
+</head>
+<body>
+<div id="app-1">
+    <input v-focus>
+</div>
+<div id="app-2">
+    <anchored></anchored>
+</div>
+<div id="app-3">
+    <div v-demo:foo.a.b="message"></div>
+</div>
+<div id="app-4">
+    <span v-color-swatch="color">Hello World!</span>
+</div>
+<div id="app-5">
+    <div v-demo="{ color: 'white', text: 'hello!' }"></div>
+</div>
+<script src="custom-directives.js"></script>
+</body>
+</html>

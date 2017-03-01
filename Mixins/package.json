@@ -1,0 +1,11 @@
+{
+  "name": "mixins",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mixins.js",
+  "scripts": {
+    "dev": "node mixins.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

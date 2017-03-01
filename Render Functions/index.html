@@ -21,6 +21,16 @@
 <div id="app-5">
     <anchored-heading-five></anchored-heading-five>
 </div>
+<div id="app-6">
+    <anchored-heading-six>Hello World!</anchored-heading-six>
+</div>
+<div id="app-7">
+    <anchored-heading-seven>
+        <template scope="props">
+            <span>{{props.text}}</span>
+        </template>
+    </anchored-heading-seven>
+</div>
 <script type="text/x-template" id="anchored-heading-template">
     <div>
         <h1 v-if="level === 1">

@@ -119,3 +119,37 @@ var app5 = new Vue({
     el : '#app-5'
 })
 
+//Slots
+//$slots example
+
+Vue.component('anchored-heading-six',{
+    render : function (createElement) {
+        return createElement('div',this.$slots.default)
+    }
+})
+
+var app6 = new Vue({
+    el : '#app-6'
+})
+
+//$scopedSlots example
+
+Vue.component('anchored-heading-seven',{
+    render: function (createElement) {
+        return createElement('div', [
+            this.$scopedSlots.default({
+                text: this.msg
+            })
+        ])
+    },
+    data : function () {
+        return {
+            msg : 'Hello World!'
+        }
+    }
+})
+
+var app7 = new Vue({
+    el : '#app-7'
+})
+
